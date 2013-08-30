@@ -43,10 +43,10 @@ module Capybara
           var app = $('*[ng-app]');
           var injector = app.injector();
 
-          injector.invoke(function($browser) {
-            $browser.notifyWhenNoOutstandingRequests(function() {
+          injector.invoke(function() {
+            if(angular.element.active == 0){
               window.angularReady = true;
-            });
+            };
           });
         JS
       end
